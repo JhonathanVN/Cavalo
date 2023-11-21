@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eu sou um cavalo?</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgba(0, 81, 255, 0.301);
+        }
+        header{
+            text-align: center;
+            padding: 10px;
+        }
+        p{
+            margin: 10px;
+        }
+        #form{
+            text-align: center;
+            padding: 10px;
+            padding-bottom: 20px;
+            background-color: white;
+            margin: auto;
+            margin-bottom: 30px;
+            max-width: 80vw;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.61);
+            border-radius: 10px;
+        }
+        input{
+           padding: 10px 15px 10px 15px;
+           margin: 10px;
+           cursor: pointer;
+        }
+        #itens_dois, #itens_tres, #itens_quatro, #itens_cinco{
+            display: none;
+        }
+        a{
+            color: white;
+        }
+        footer{
+            background-color: black;
+            color: white;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        }
+        @media screen and (min-width: 790px) {
+            #form{
+            max-width: 50vw;
+        }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Eu sou um cavalo?</h1>
+            <h2>Um fluxograma útil</h2>
+        </header>
+        <div id="form">
+            <p>Atualize a página sempre que terminar</p>
+            <p>Duplo clique para voltar a escolha atual</p>
+            <h2>Você é um cavalo?</h2>
+            <div id="itens_um">
+                <input type="button" value="Não" id="um_nao" class="prim" onclick="prim_nao(), esconde_botao()" ondblclick="esconde_botao()">
+                <input type="button" value="Talvez" id="tlv" class="prim" onclick="talv(), mostra_esconde_botao()" ondblclick="esconde_botao()">
+                <input type="button" value="Sim" id="um_sim" class="prim" onclick="prim_sim(), mostra_esconde_botao()" ondblclick="esconde_botao()"> 
+                <div id="primeira"></div>
+            </div>
+            <div id="itens_dois">
+                <input type="button" value="Duas" id="dois_duas" onclick="seg_duas(), esconde_botao2()" ondblclick="esconde_botao2()">
+                <input type="button" value="Quatro" id="dois_quatro" onclick="seg_quatro(), mostra_esconde_botao2()" ondblclick="esconde_botao2()">
+                <div id="segunda"></div>
+            </div>
+            <div id="itens_tres">
+                <input type="button" value="Não" id="dois_nao" onclick="seg_nao(), mostra_esconde_botao3()" ondblclick="esconde_botao3()">
+                <input type="button" value="Sim" id="dois_sim" onclick="seg_sim(), mostra_esconde_botao3()" ondblclick="esconde_botao3()">
+                <div id="terceira"></div>
+            </div>
+            <div id="itens_quatro">
+                <input type="button" value="Não" id="tres_nao" onclick="terc_nao(), mostra_esconde_botao4()" ondblclick="esconde_botao4()">
+                <input type="button" value="Sim" id="tres_sim" onclick="terc_sim(), esconde_botao4()" ondblclick="esconde_botao4()">
+                <div id="quarta"></div>
+            </div>
+            <div id="itens_cinco">
+                <input type="button" value="Não" id="quatro_nao" onclick="quart_nao()" ondblclick="apaga_4nao()">
+                <input type="button" value="Sim" id="quatro_sim" onclick="quart_sim()" ondblclick="apaga_4sim()">
+                <div id="quinta"></div>
+            </div>
+        </div>
+        <footer>
+            <p>Desenvolvido por <a href="https://instagram.com/jhonathan.v.n" target="_blank">Jhonathan Vinicius</a></p>
+        </footer>
+    </main>
+    <script>
+        /* Primeira parte */
+        function prim_nao(){
+            document.getElementById("primeira").innerHTML = "<h2>Você não é um cavalo</h2>"
+        }
+        function talv(){
+            document.getElementById("primeira").innerHTML = "<h2>Com quantas pernas você anda?&#128694</h2>" 
+        }
+        function prim_sim(){
+            document.getElementById("primeira").innerHTML = "<h2>Com quantas pernas você anda?&#127939</h2>"
+        }
+        /* Segunda parte */
+        function seg_duas(){
+            document.getElementById("segunda").innerHTML = "<h2>Você não é um cavalo</h2>"
+        }
+        function seg_quatro(){
+            document.getElementById("segunda").innerHTML = "<h2>SÉRIO?</h2>"
+        }
+        /* Terceira parte */
+        function seg_nao(){
+            document.getElementById("terceira").innerHTML = "<h2>Você pode ler e escrever?&#9997</h2>"
+        }
+        function seg_sim(){
+            document.getElementById("terceira").innerHTML = "<h2>Você pode ler e escrever?&#128065</h2> "
+        }
+        /* Quarta parte */
+        function terc_nao(){
+            document.getElementById("quarta").innerHTML = "<h2>Mentira, você está lendo isso?</h2>"
+        }
+        function terc_sim(){
+            document.getElementById("quarta").innerHTML = "<h2>Você não é um cavalo</h2>"
+        }
+        /* Quinta parte */
+        function apaga_4nao(){
+            document.getElementById("quinta").innerHTML = "<h2></h2>"
+        }
+        function apaga_4sim(){
+            document.getElementById("quinta").innerHTML = "<h2></h2>"
+        }
+        function quart_nao(){
+            document.getElementById("quinta").innerHTML = "<h2>Você não é um cavalo, mas é cego</h2>"
+        }
+        function quart_sim(){
+            document.getElementById("quinta").innerHTML = "<h2>Você não é um cavalo</h2>"
+        }
+        /**/
+        /**/
+        /**/
+        /**/
+        function mostra_esconde(){
+            if(itens_dois.style.display == 'inline-block'){
+                itens_dois.style.display = 'none'
+            }else{
+                itens_dois.style.display = 'inline-block'
+        }
+        }
+        function mostra_esconde_botao(){
+            if(itens_dois.style.display == 'block'){
+                itens_dois.style.display = 'block'
+            }else{
+                itens_dois.style.display = 'block'
+        }
+        }
+        function mostra_esconde_botao2(){
+            if(itens_tres.style.display == 'block'){
+                itens_tres.style.display = 'none'
+            }else{
+                itens_tres.style.display = 'block'
+        }
+        }
+        function mostra_esconde_botao3(){
+            if(itens_quatro.style.display == 'block'){
+                itens_quatro.style.display = 'block'
+            }else{
+                itens_quatro.style.display = 'block'
+        }
+        }
+        function mostra_esconde_botao4(){
+            if(itens_cinco.style.display == 'block'){
+                itens_cinco.style.display = 'none'
+            }else{
+                itens_cinco.style.display = 'block'
+        }
+        }
+
+        /**/
+
+        function esconde_botao(){
+            if(itens_dois.style.display == 'block'){
+                itens_dois.style.display = 'none'
+            }
+            if(itens_tres.style.display == 'block'){
+                itens_tres.style.display = 'none'
+            }
+            if(itens_quatro.style.display == 'block'){
+                itens_quatro.style.display = 'none'
+            }
+            if(itens_cinco.style.display == 'block'){
+                itens_cinco.style.display = 'none'
+            }
+        }
+        function esconde_botao2(){
+            if(itens_tres.style.display == 'block'){
+                itens_tres.style.display = 'none'
+            }
+            if(itens_quatro.style.display == 'block'){
+                itens_quatro.style.display = 'none'
+            }
+            if(itens_cinco.style.display == 'block'){
+                itens_cinco.style.display = 'none'
+            }
+        }
+        function esconde_botao3(){
+            if(itens_quatro.style.display == 'block'){
+                itens_quatro.style.display = 'none'
+            }
+            if(itens_cinco.style.display == 'block'){
+                itens_cinco.style.display = 'none'
+            }
+        }
+        function esconde_botao4(){
+            if(itens_cinco.style.display == 'block'){
+                itens_cinco.style.display = 'none'
+            }
+        }
+    </script>
+</body>
+</html>
